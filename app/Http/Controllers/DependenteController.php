@@ -47,7 +47,7 @@ class DependenteController extends Controller
             'serie' => $aluno->serie,
             'sexo' => $aluno->sexo,
             'escola' => $aluno->estabelecimento->escola,
-            'saldo' => 59.63,
+            'saldo' => $aluno->conta->saldo,
             'limiteDiario' => 10.00
         );
 
