@@ -38,7 +38,7 @@ class AuthController extends Controller
             return response()->json($resposta);
         }
 
-        if( !Hash::check($request->senha, $aluno->senha) ){
+        if( !Hash::check($params->senha, $aluno->senha) ){
             $resposta['erro'] = true;
             $resposta['mensagem'] = 'Senha inválida';
 
