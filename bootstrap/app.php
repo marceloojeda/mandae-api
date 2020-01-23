@@ -59,12 +59,13 @@ $app->singleton(
 
 $app->middleware([
     App\Http\Middleware\CorsMiddleware::class,
+    // App\Http\Middleware\VerifyCsrfToken::class,
 ]);
 
-$app->routeMiddleware([
-    // 'auth' => App\Http\Middleware\Authenticate::class,
-    'csrf' => 'Laravel\Lumen\Http\Middleware\VerifyCsrfToken',
-]);
+// $app->routeMiddleware([
+//     // 'auth' => App\Http\Middleware\Authenticate::class,
+//     'csrf' => 'Laravel\Lumen\Http\Middleware\VerifyCsrfToken',
+// ]);
 
 /*
 |--------------------------------------------------------------------------

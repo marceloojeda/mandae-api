@@ -26,8 +26,10 @@ class AuthController extends Controller
 			'perfil' => '',
 			'id' => null
         );
+
+        $params = json_decode(base64_decode($request->q));
         
-        $aluno = $this->dependenteRepo->autenticarPeloCelular($request);
+        $aluno = $this->dependenteRepo->autenticarPeloCelular($params);
 
         if(!$aluno){
             $resposta['erro'] = true;

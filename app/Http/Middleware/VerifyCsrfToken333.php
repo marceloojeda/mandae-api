@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Session\TokenMismatchException;
 
-class VerifyCsrfToken extends \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken {
+class VerifyCsrfToken333 extends \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken {
 
     protected $except_urls = [
         // your excluded URLs go here

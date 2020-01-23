@@ -6,7 +6,7 @@
 // });
 
 // Route::get('/', 'ExampleController@index');
-Route::post('auth/login-por-telefone', 'AuthController@autenticarPorTelefone');
+Route::get('auth/login-por-telefone', 'AuthController@autenticarPorTelefone');
 
 Route::get('dependentes/{id}', 'DependenteController@show');
 Route::get('dependentes/historico-pedidos/{idAluno}', 'DependenteController@getHistoricoPedidos');
