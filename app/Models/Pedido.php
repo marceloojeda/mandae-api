@@ -20,14 +20,16 @@ class Pedido extends Model
     ];
 
 
-    public function getHistorico($idAluno){
+    public function getHistorico($idAluno, $confirmados = true){
         $query = DB::table('pedidos')
             ->join('contas', 'pedidos.conta_id', 'contas.id')
-            ->join('pedido_itens', 'pedidos.id', 'pedido_itens.pedido_id')
-            ->join('produtos', 'pedido_itens.produto_id', 'produtos.id')
             ->where('contas.dependente_id', $idAluno)
-            ->select('pedidos.*', 'pedido_itens.*', 'produtos.descricao')
-            ->orderBy('pedidos.created_at', 'desc');
+            ->select('pedidos.*')
+            ->orderBy('pedidos.id', 'desc');
+
+        if($confirmados){
+            $query->where('pedidos.status', 'Confirmado');
+        }
 
         return $query->paginate();
     }

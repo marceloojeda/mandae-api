@@ -66,14 +66,14 @@ class DependenteController extends Controller
         
         $pedidos = $this->pedidoRepo->getHistorico($idAluno);
 
-        if(!$pedidos){
+        if(!count($pedidos)){
             $resposta['erro'] = true;
             $resposta['mensagem'] = 'Aluno ainda não realizou nenhum pedido';
 
             return response()->json($resposta);
         }
 
-        
+        $resposta['dados'] = $pedidos;
 
         return response()->json($resposta);
     }
