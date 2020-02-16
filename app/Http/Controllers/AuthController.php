@@ -28,7 +28,7 @@ class AuthController extends Controller
         );
 
         $params = json_decode(base64_decode($request->q));
-        
+
         $aluno = $this->dependenteRepo->autenticarPeloCelular($params);
 
         if(!$aluno){
@@ -38,7 +38,8 @@ class AuthController extends Controller
             return response()->json($resposta);
         }
 
-        if( !Hash::check($params->senha, $aluno->senha) ){
+        //if( !Hash::check($params->senha, $aluno->senha) ){
+        if( $params->senha != $aluno->senha ) {
             $resposta['erro'] = true;
             $resposta['mensagem'] = 'Senha inválida';
 

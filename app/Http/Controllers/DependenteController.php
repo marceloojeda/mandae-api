@@ -195,6 +195,7 @@ class DependenteController extends Controller
         $resposta['urlBarcode'] = $url;
 
         $resposta['itens'] = $this->pedidoRepo->getItens($pedido->id);
+        $resposta['total'] = $pedido->total;
         
         return response()->json($resposta);
     }
